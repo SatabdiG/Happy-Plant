@@ -1,0 +1,63 @@
+
+
+	<html><!DOCTYPE html>
+    <html lang="en">
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+    <link href='https://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css' rel='stylesheet' type='text/css'>
+    <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+
+    <link href='metricsgraphics.css' rel='stylesheet' type='text/css'>
+
+
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+    <script src="d3.js" charset="utf-8"></script>
+    <script src='metricsgraphics.min.js'></script>
+
+
+
+	<title> Happy Plants</title><META HTTP-EQUIV="refresh" CONTENT="200"></head> <body> <center> <h2> 2016-02-04 </h2> </center> "
+
+<center> <p id='status' style='color: #ffffff; background-color: #ff0000'> Attention!! plant needs help</p></center>
+
+"
+
+<center><img src='sad.png'></img></center> 
+
+"
+
+<center>Plant feelings: <h3>I am super thirsty.</h3> </center>
+
+
+<center>
+<div id="small"></div>
+</center>
+
+
+*Temperature: 374    Humidity: 366     Soil Moisture: 989
+<br>*Temperature: 374    Humidity: 370     Soil Moisture: 989
+<br>*Temperature: 374    Humidity: 366     Soil Moisture: 989
+
+
+
+
+<script>
+ d3.json('Text.json', function(data) {
+    MG.data_graphic({
+        title: "Peace Lily",
+        description: "Timely Moisture ratings for the plant - Peace Lily",
+        data: data,
+        width: 650,
+        height: 150,
+        target: '#small',
+        x_accessor: 'Sample Time',
+        y_accessor: 'Moisture'
+    })
+})
+
+
+ </script>
+
+</body>
+</html>
+

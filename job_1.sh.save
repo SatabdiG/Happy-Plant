@@ -1,0 +1,12 @@
+
+#!/bin/sh
+echo "Now running Sensor monitor"
+(watch -n 60  sudo python /home/pi/Desktop/Python/InterfaceKit-TempHumi.py)&
+#query after a fixed time 
+(watch -n 60  sudo python /home/pi/Desktop/Python/file.py)  &
+
+
+echo 'Done'
+
+
+x

@@ -1,0 +1,3 @@
+Temperature 374:Humidity 366:Soil Moisture 989
+Temperature 374:Humidity 370:Soil Moisture 989
+Temperature 374:Humidity 366:Soil Moisture 989
