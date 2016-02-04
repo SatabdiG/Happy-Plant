@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello Dashboard</title>
+    <style>
+        table, th, td{
+            border:1px solid black;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 15px;
+            text-align: center;
+            }
+        th {
+              text-align: center;
+            }
+    </style>
+     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+     <script>
+         function myFunction(){
+                alert("Hello");
+             }
+     </script>
+</head>
+<body>
+<center>
+<table style="width:80%">
+    <caption><h2><center>Happy Plants</center></h2> </caption>
+    <br> <br>
+    <thead><td ><b>Plant name</b></td><td><b>Plant WebPage</b></td></thead>
+    <tr id="Ele1"><td>Aloe vera</td><td><a href="http://192.168.1.97:8000/">Click me to view stats </a> </td></tr>
+    <tr id="Ele2"><td>Peace Lily</td><td><a href="http://192.168.1.24:8000/">Click me to view stats </a> </td></tr>
+    <tr id="Ele3"><td>Spider Plant</td><td><a href="http://192.168.1.94:8000/">Click me to view stats </a> </td></tr>
+</table>
+</center>
+<br>
+<br>
+
+<canvas id="myCanvas" width="600" height="700">This text is displayed if browser doesn't support HTML5</canvas>
+</center>
+<script src="Wiscript.js" type="text/javascript"></script>
+<div id="example-widget-container"></div>
+<script>
+    var canvas
+    var ctx
+    var Img=new Image();
+    var radius= 10;
+    var x_cir=60;
+    var y_cir=70;
+    var inCircle=false;
+    var elelink;
+    var x_cir1=200;
+    var y_cir1=340;
+    var inCircle1=false;
+    var x_cir2=210;
+    var y_cir2=400;
+    var inCircle2=false;
+
+
+
+    function circle()
+    {
+        ctx.beginPath();
+        ctx.arc(x_cir, y_cir, radius,0, 2*Math.PI, false);
+        ctx.fillStyle='green';
+        ctx.fill();
+        ctx.lineWidth = 2;
+        ctx.strokeStyle = '#003300';
+        ctx.stroke();
+
+    }
+
+    function circl1()
+    {
+        ctx.beginPath();
+        ctx.arc(x_cir1, y_cir1, radius,0, 2*Math.PI, false);
+        ctx.fillStyle='green';
+        ctx.fill();
+        ctx.lineWidth = 2;
+        ctx.strokeStyle = '#003300';
+        ctx.stroke();
+
+    }
+
+    function circl2()
+    {
+        ctx.beginPath();
+        ctx.arc(x_cir2, y_cir2, radius,0, 2*Math.PI, false);
+        ctx.fillStyle='green';
+        ctx.fill();
+        ctx.lineWidth = 2;
+        ctx.strokeStyle = '#003300';
+        ctx.stroke();
+
+    }
+
+
+
+
+
+    function init() {
+         canvas = document.getElementById("myCanvas");
+         elelink=document.getElementById("Ele1");
+         elelink1=document.getElementById("Ele2");
+         elelink2=document.getElementById("Ele3");
+         ctx = canvas.getContext("2d");
+         return setInterval(draw, 10);
+        }
+
+    function draw(){
+        inCircle=false;
+        inCircle1=false;
+        inCircle2=false;
+        ctx.drawImage(Img, 5, 6);
+        ctx.fillStyle = "#FAF7F8";
+        circle();
+        circl1();
+        circl2();
+
+
+    }
+    function inSideCircle(x, y)
+    {
+
+        var d1=Math.sqrt((x-x_cir)*(x-x_cir) + (y-y_cir)*(y-y_cir));
+        var d2=Math.sqrt((x-x_cir1)*(x-x_cir1) + (y-y_cir1)*(y-y_cir1));
+        var d3=Math.sqrt((x-x_cir2)*(x-x_cir2) + (y-y_cir2)*(y-y_cir2));
+        if(d1<radius)
+        {
+            //In Circle
+            //alert("Hi there");
+
+            elelink.style.backgroundColor="#66CCFF";
+
+
+        }else
+          elelink.style.backgroundColor="white";
+         if(d2<radius)
+        {
+            inCircle1=true;
+            elelink1.style.backgroundColor="#66CCFF";
+        }
+        else
+            elelink1.style.backgroundColor="white";
+        if(d3<radius)
+        {
+            inCircle2=true;
+            elelink2.style.backgroundColor="#66CCFF";
+        }
+        else
+            elelink2.style.backgroundColor="white";
+
+    }
+
+
+
+    function MyMove(e){
+
+      x = e.pageX - canvas.offsetLeft;
+      y = e.pageY - canvas.offsetTop;
+      //call the alert logic for now
+      inSideCircle(x,y);
+
+
+     }
+
+
+    Img.src="floor.jpg"
+    init();
+    canvas.onmousemove=MyMove;
+
+</script>
+</form>
+</center>
+</body>
+</html>
